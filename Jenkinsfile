@@ -6,7 +6,7 @@ pipeline {
     stages{
         stage('Build Maven'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ygminds73/jenkins-mvn-docker.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/AkshayGarad/jenkins-mvn-docker.git']]])
                 sh 'mvn clean install'
             }
         }
@@ -22,7 +22,7 @@ pipeline {
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                   sh 'docker login -u youngminds73 -p ${dockerhubpwd}'
+                   sh 'docker login -u ahgarad19@gmail.com -p ${dockerhubpwd}'
 
                       }
                    sh 'docker push youngminds73/devops-integration1'
