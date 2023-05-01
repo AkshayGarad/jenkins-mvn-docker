@@ -14,7 +14,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t youngminds73/devops-integration1 .'
+                    sh 'docker build -t ahgarad19/devops-integration1 .'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
                    sh 'docker login -u ahgarad19 -p ${dockerhubpwd}'
 
                       }
-                   sh 'docker push youngminds73/devops-integration1'
+                   sh 'docker push ahgarad19/devops-integration1'
                 }
             }
         }
